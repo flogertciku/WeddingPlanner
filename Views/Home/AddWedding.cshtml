@@ -1,0 +1,16 @@
+   @model Wedding
+    <div class="col-2">
+        <form asp-action="CreateWedding" method="Post">
+            <div>
+                <label asp-for="WedderOne"></label>
+                <input asp-for="WedderOne">
+                <span asp-validation-for="WedderOne"> </span>
+            </div>
+              <div>
+                <label asp-for="WedderTwo"></label>
+                <input asp-for="WedderTwo">
+                <span asp-validation-for="WedderTwo"> </span>
+            </div>
+            <input type="submit" >
+        </form>
+    </div>

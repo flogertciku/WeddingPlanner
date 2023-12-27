@@ -1,0 +1,36 @@
+﻿@model Wedding
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center row">
+    <div class="col-6">
+        <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Wedding Of</th>
+      <th scope="col">Date</th>
+      <th scope="col">Guest Count</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach(Wedding dasma in  ViewBag.dasmat){
+          <tr>
+      <th scope="row">@dasma.WedderOne & @dasma.WedderTwo</th>
+      <td>@dasma.CreatedAt</td>
+      <td>@dasma.ftesat.Count</td>
+      @{
+        var eshte = dasma.ftesat.Any(e=> e.WeddingId == dasma.WeddingId && e.UserId == ViewBag.UserId);
+      @if( ViewBag.userId == dasma.UserId){<td> <a asp-action="DeleteDasma" asp-route-id =" @dasma.WeddingId">Delete</a> </td>}else{ if(!eshte){ <td> <a asp-action="Shko" asp-route-id =" @dasma.WeddingId">Shko Ne Dasem</a> </td> }else{<td> <a asp-action="Ik" asp-route-id =" @dasma.WeddingId">Mos Shko Ne Dasem</a> </td>}} 
+      }
+    </tr>
+    
+    }
+
+  
+
+  </tbody>
+</table>
+    </div>
+   </div>
